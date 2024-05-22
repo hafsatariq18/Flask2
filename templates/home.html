@@ -73,27 +73,21 @@ h1{
         {{product['use']}}
       </div>
    </div>
-   {% if loop.index == 1 %}
    <div class ="col-2">
-      <img src="static/shower_cream.jpg" height="150px" width="100px">
-      <button type="button" class="btn btn-primary btn-sm">SHOP NOW</button>
-   </div>
+    {% if loop.index == 1 %}
+    <img src="static/shower_cream.jpg" height="150px" width="100px">
     {% elif loop.index == 2 %}
-    <div class ="col-2">
-        <img src="static/almond_milk.jpg" height="150px" width="100px">
-        <button type="button" class="btn btn-primary btn-sm">SHOP NOW</button>
-   </div>
-   {% elif loop.index == 3 %}
-    <div class ="col-2">
-        <img src="static/body_butter.avif" height="150px" width="150px">
-        <button type="button" class="btn btn-primary btn-sm">SHOP NOW</button>
-   </div>
-   {% endif %}
-   </div>
-   {% endfor %}
+    <img src="static/almond_milk.jpg" height="150px" width="100px">
+    {% elif loop.index == 3 %}
+    <img src="static/body_butter.avif" height="150px" width="150px">
+    {% endif %}
+    <a href="/product/{{product['id']}}"class="btn btn-primary btn-sm">SHOP NOW</a>
+</div>
+</div>
+{% endfor %}
 
 </div>
-
+    {% include 'footer.html' %}
 </body>
 
 </html>
