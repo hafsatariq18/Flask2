@@ -19,13 +19,21 @@ h1 {
     max-width: 850px;
     margin: 0 auto;
 }
+#banner{
+    height:90vh;
+    width:100%;
+    object-fit:cover;
+    margin-bottom:80px;
+    }
 </style>
 </head>
 <body>
+    <img id="banner" src="{{ url_for('static', filename='bodyshop.jpeg') }}" height="80vh" width="120px">
 <div id="container">
     <h1>{{ product['item'] }}</h1>
     <p>For: {{ product['skin_type'] }}</p>
     <p>Use: {{ product['uses'] }}</p>
+    <p>Price: {{ product['price'] }}</p>
 
 <a href="/buy_now/{{ product['id'] }}"  class="btn btn-primary">Buy Now</a> 
 

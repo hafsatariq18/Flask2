@@ -15,16 +15,25 @@ h1 {
     margin-top: 2rem;
     margin-bottom: 5rem;
 }
+
 #container {
     max-width: 850px;
     margin: 0 auto;
 }
+#banner{
+    height:90vh;
+    width:100%;
+    object-fit:cover;
+    margin-bottom:80px;
+    }
 </style>
 </head>
 <body>
+    <img id="banner" src="{{ url_for('static', filename='bodyshop.jpeg') }}" height="80vh" width="120px">
     <h1>{{product['item']}}</h1>
+   
 <div id="container">
-
+   
 <form action ="/buy_now/{{ product['id'] }}/place_order" method="POST">
 <div class = "mb-2">
 <label>Full Name</label><br>

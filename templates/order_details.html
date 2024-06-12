@@ -19,9 +19,16 @@ h1 {
     max-width: 850px;
     margin: 0 auto;
 }
+#banner{
+    height:90vh;
+    width:100%;
+    object-fit:cover;
+    margin-bottom:80px;
+    }
 </style>
 </head>
 <body>
+    <img id="banner" src="{{ url_for('static', filename='bodyshop.jpeg') }}" height="80vh" width="120px">
 <div id="container">
     <h1>Order Placed for {{ product['item'] }}</h1>
     <p>Full Name: {{ full_name }}</p>

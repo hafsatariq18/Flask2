@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify, request
-from database import engine
+from database import engine, add_ord_to_db
 from sqlalchemy import text
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ def load_products():
         with engine.connect() as conn:
             result = conn.execute(text("select * from PRODUCTS"))
             rows = result.fetchall()
-            product_list = [{'id': row[0], 'item': row[1], 'skin_type': row[2], 'uses': row[3]} for row in rows]
+            product_list = [{'id': row[0], 'item': row[1], 'skin_type': row[2], 'uses': row[3], 'price': row[4]} for row in rows]
             return product_list
          
 
@@ -48,9 +48,12 @@ def buy_now(product_id):
 
 @app.route("/buy_now/<int:product_id>/place_order", methods=["POST"])
 def place_order(product_id):
+    data = request.form
     product = get_product_by_id(product_id)
     if product:
-        return render_template('order_details.html', **request.form, order_status='Order Placed', product=product)
+        add_ord_to_db(id, data)
+        return render_template('order_details.html', **request.form, order_status='Order Placed', product=product, orders=data)
+        print(data)
     else:
         return "Product not found", 404
 
