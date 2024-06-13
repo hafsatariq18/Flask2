@@ -25,10 +25,10 @@ def hello_world():
     # print(f"Loaded products: {products}")
     return render_template('home.html', products=products)
 
-@app.route("/api/products")
-def list_products():
-    products = load_products()  # Fetch the list of products
-    return jsonify(products) 
+# @app.route("/api/products")
+# def list_products():
+#     products = load_products()  # Fetch the list of products
+#     return jsonify(products) 
 
 @app.route("/product/<int:product_id>")
 def product_detail(product_id):
@@ -51,9 +51,9 @@ def place_order(product_id):
     data = request.form
     product = get_product_by_id(product_id)
     if product:
-        add_ord_to_db(id, data)
-        return render_template('order_details.html', **request.form, order_status='Order Placed', product=product, orders=data)
-        print(data)
+            add_ord_to_db(product_id, data)
+            return render_template('order_details.html', **request.form, order_status='Order Placed', product=product, orders=data)
+            print(data)
     else:
         return "Product not found", 404
 

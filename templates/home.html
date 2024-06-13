@@ -26,6 +26,29 @@ h1{
     .larger-text {
     font-size: 30px;
 }
+.btn-pink {
+    background-color: pink;
+    border-color: pink;
+    color: white;
+    margin: 15px 0px 15px 0px ;
+}
+.btn-pink:hover {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+}
+.product_details{
+    color: rgb(100, 100, 100);
+}
+.product_heading{
+    color: black;
+}
+.heading{
+    color: rgb(213, 209, 209);
+    font-size: 3em;
+    text-shadow: 2px 2px black; 
+    margin-top: 20px;
+    
+}
 </style>
 <nav class="navbar bg-body-tertiary fixed-top">
     <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -51,7 +74,7 @@ h1{
     font-weight:normal; 
     color: rgb(100, 100, 100);
     margin-bottom: 50px">
-    <h4>Indulge in Luxury: 50% Off on Shea, Almond, and Olive Skincare. Limited Stock</h4>
+    <h4 class = "heading">Indulge in Luxury: 50% Off on Shea, Almond, and Olive Skincare. Limited Stock</h4>
     </div>
         <p>
 <div style="margin-bottom:70px">
@@ -66,9 +89,9 @@ h1{
 </p>
 {% for product in products %}  
 <div class="border-bottom row" style="margin-bottom:16px;padding-bottom:8px">
-   <div class="col-10">
+   <div class="col-10 product_details">
       <div style="margin-bottom:30px">
-         <h4>{{product['item']}}</h4>
+         <h4 class ="product_heading">{{product['item']}}</h4>
          For {{product['skin_type']}}<br>
         {{product['uses']}}<br>
         Item Price :{{product['price']}}
@@ -80,9 +103,9 @@ h1{
     {% elif loop.index == 2 %}
     <img src="static/almond_milk.jpg" height="150px" width="100px">
     {% elif loop.index == 3 %}
-    <img src="static/body_butter.avif" height="150px" width="150px">
+    <img src="static/body_butter.avif" height="100px" width="100px">
     {% endif %}
-    <a href="/product/{{product['id']}}"class="btn btn-primary btn-sm">SHOP NOW</a>
+    <a href="/product/{{product['id']}}"class="btn btn-pink btn-sm">SHOP NOW</a>
 </div>
 </div>
 {% endfor %}

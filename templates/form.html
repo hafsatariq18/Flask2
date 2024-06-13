@@ -26,6 +26,15 @@ h1 {
     object-fit:cover;
     margin-bottom:80px;
     }
+    .btn-pink {
+    background-color: pink;
+    border-color: pink;
+    color: white;
+}
+.btn-pink:hover {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+}
 </style>
 </head>
 <body>
@@ -51,7 +60,7 @@ h1 {
 <label>Payment Mode</label><br>
 <input type= "text" name ="payment_mode" placeholder="Enter payment mode"> 
 </div> 
-<button type="submit" class="btn btn-primary">Order Now</button>
+<button type="submit" class="btn btn-pink btn-sm">Order Now</button>
 </form>
 </body>
 {% include 'footer.html' %}

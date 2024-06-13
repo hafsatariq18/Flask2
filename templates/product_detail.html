@@ -25,6 +25,16 @@ h1 {
     object-fit:cover;
     margin-bottom:80px;
     }
+    .btn-pink {
+    background-color: pink;
+    border-color: pink;
+    color: white;
+}
+.btn-pink:hover {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+}
+
 </style>
 </head>
 <body>
@@ -35,7 +45,7 @@ h1 {
     <p>Use: {{ product['uses'] }}</p>
     <p>Price: {{ product['price'] }}</p>
 
-<a href="/buy_now/{{ product['id'] }}"  class="btn btn-primary">Buy Now</a> 
+<a href="/buy_now/{{ product['id'] }}"  class="btn btn-pink btn-sm">Buy Now</a> 
 
 
 {% include 'footer.html' %}
