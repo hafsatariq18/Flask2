@@ -52,8 +52,9 @@ def place_order(product_id):
     product = get_product_by_id(product_id)
     if product:
             add_ord_to_db(product_id, data)
-            return render_template('order_details.html', **request.form, order_status='Order Placed', product=product, orders=data)
             print(data)
+            return render_template('order_details.html', **request.form, order_status='Order Placed', product=product, orders=data)
+            
     else:
         return "Product not found", 404
 

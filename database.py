@@ -9,7 +9,7 @@ engine = create_engine(
         }
     })
 def add_ord_to_db(product_id, data):
-  with engine.connect()as conn:
+  with engine.connect() as conn:
     query = text ("INSERT INTO orders (product_id, full_name, address, pincode, payment_mode) VALUES (:product_id, :full_name, :address, :pincode, :payment_mode)")
     conn.execute (query,{
                      'product_id': product_id,
@@ -17,3 +17,4 @@ def add_ord_to_db(product_id, data):
                      'address' : data ['address'],
                      'pincode' : data ['pincode'],
                      'payment_mode' : data ['payment_mode']})
+    conn.commit()

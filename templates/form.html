@@ -46,20 +46,21 @@ h1 {
 <form action ="/buy_now/{{ product['id'] }}/place_order" method="POST">
 <div class = "mb-2">
 <label>Full Name</label><br>
-<input type= "text" name ="full_name" placeholder="Enter full name">
+<input type= "text" required name ="full_name" placeholder="Enter full name">
 </div>
 <div class = "mb-2">
 <label>Address</label><br>
-<input type= "text" name ="address" placeholder="Enter your address">
+<input type= "text" required name ="address" placeholder="Enter your address">
 </div>
 <div class = "mb-2">
 <label>Pincode</label><br>
-<input type= "text" name ="pincode" placeholder="Enter your pincode">
+<input type= "number" required name ="pincode" placeholder="Enter your pincode">
 </div>
 <div class = "mb-2">
 <label>Payment Mode</label><br>
 <input type= "text" name ="payment_mode" placeholder="Enter payment mode"> 
 </div> 
+<p>Amount to be paid: {{product['price']}}</p>
 <button type="submit" class="btn btn-pink btn-sm">Order Now</button>
 </form>
 </body>
