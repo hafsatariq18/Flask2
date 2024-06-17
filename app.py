@@ -25,10 +25,10 @@ def hello_world():
     # print(f"Loaded products: {products}")
     return render_template('home.html', products=products)
 
-# @app.route("/api/products")
-# def list_products():
-#     products = load_products()  # Fetch the list of products
-#     return jsonify(products) 
+@app.route("/api/products")
+def list_products():
+    products = load_products()  # Fetch the list of products
+    return jsonify(products) 
 
 @app.route("/product/<int:product_id>")
 def product_detail(product_id):
